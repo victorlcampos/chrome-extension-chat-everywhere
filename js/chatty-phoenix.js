@@ -1155,7 +1155,7 @@ require.register("deps/phoenix/web/static/js/phoenix", function(exports, require
 
   var chattyMessageBuilder = function() {
     var chattyMessage = document.createElement("textarea");
-    chattyMessage.id = 'chat-input';
+    chattyMessage.id = 'chatty-input';
     return chattyMessage;
   };
 
@@ -1273,17 +1273,18 @@ require.register("deps/phoenix/web/static/js/phoenix", function(exports, require
   });
 
   document.getElementById('chatty-btn').addEventListener("click", function () {
-    var chat_message_text_area = document.getElementById('chat-input');
+    var chat_message_text_area = document.getElementById('chatty-input');
     channel.push("new_msg", { body: chat_message_text_area.value });
     chat_message_text_area.value = "";
   });
 
   channel.on("new_msg", function (payload) {
     var node = document.createElement("LI");
-    var textnode = document.createTextNode("[" + Date() + "] " + payload.body);
+    var textnode = document.createTextNode(payload.body);
     node.appendChild(textnode);
     var messages = document.getElementById('chatty-messages');
     messages.appendChild(node);
+    messages.appendChild(document.createElement("HR"))
     messages.scrollTop = messages.scrollHeight;
   });
 

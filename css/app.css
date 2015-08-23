@@ -1,14 +1,26 @@
 .chatty {
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 30px;
   background-color: white;
   padding: 20px;
   box-sizing: content-box;
-  border-left: 1px solid;
-  border-top: 1px solid;
-  width: 180px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  width: 300px;
   z-index: 10000;
+}
+
+#chatty-input {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  background: #fff;
+  color: #444;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  font-size: 14px;
+  width: 100%;
 }
 
 #chatty-btn {
@@ -30,4 +42,13 @@
 #chatty-messages {
   height: 200px;
   overflow-y: auto;
+  margin-left: -20px;
+  margin-right: -20px;
+  word-wrap: break-word;
+  list-style-type: none;
+  line-height: 1.34;
+  font-size: 12px;
+}
+#chatty-messages li {
+  padding: 10px;
 }
